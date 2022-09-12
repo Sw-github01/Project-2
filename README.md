@@ -13,11 +13,31 @@ Details of installation can be found https://docs.conda.io/projects/conda/en/lat
 
 **File Descriptions**
 
-This repository contains 3 project folders of data, model, app included
+This repository contains 3 project folders of data, model, app included. The structure of the project as below:
+
+app
+| - template
+| |- master.html # main page of web app
+| |- go.html # classification result page of web app
+|- run.py # Flask file that runs app
+data
+|- disaster_categories.csv # data to process
+|- disaster_messages.csv # data to process
+|- process_data.py
+|- InsertDatabaseName.db # database to save clean data to
+models
+|- train_classifier.py
+|- classifier.pkl # saved model
+README.md
 
 
 **How To Interact With Your Project **
-Feel free to Leave a coment or raise a bug notice
+# To create a processed sqlite db
+python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
+# To train and save a pkl model
+python train_classifier.py ../data/DisasterResponse.db classifier.pkl
+# To deploy the application locally
+python run.py
 
 **Acknowledgements**
 
