@@ -32,11 +32,11 @@ README.md
 
 
 **How To Interact With Your Project **
-# To create a processed sqlite db
+1 To create a processed sqlite db
 python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
-# To train and save a pkl model
+2 To train and save a pkl model
 python train_classifier.py ../data/DisasterResponse.db classifier.pkl
-# To deploy the application locally
+3 To deploy the application locally
 python run.py
 
 **Acknowledgements**
