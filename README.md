@@ -1,5 +1,9 @@
 ## Disaster Response Pipeline Project
 
+**Introduction**
+
+This project is to analyze messages received during diaster events and responding categories of reliefs can be actioned. This project applies machine learning pipeline techniques to aid for this process, it is to aid to send the messages to appropriate disaster relief agency. Potentially it could reduce the human intervantion and process the messages received more efficiently and help people in need more quicker and accurately.
+
 **A collection of Python scripts**
 
 Installation Pre-requisite Mini Conda Installation with python 3
@@ -10,6 +14,7 @@ Details of installation can be found https://docs.conda.io/projects/conda/en/lat
 **File Descriptions**
 
 This repository contains 3 project folders of data, model, app included
+
 
 **How To Interact With Your Project **
 Feel free to Leave a coment or raise a bug notice
