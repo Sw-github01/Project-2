@@ -32,12 +32,15 @@ README.md
 
 
 **How To Interact With Your Project **
-1 To create a processed sqlite db
-python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
-2 To train and save a pkl model
-python train_classifier.py ../data/DisasterResponse.db classifier.pkl
-3 To deploy the application locally
-python run.py
+
+Clone the project, and then
+
+To create a processed sqlite db using the command line as below:
+- python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
+To train and save a pkl model using the command line as below:
+- python train_classifier.py ../data/DisasterResponse.db classifier.pkl
+To deploy the application locally using the command line as below:
+- python run.py
 
 **Acknowledgements**
 
