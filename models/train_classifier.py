@@ -9,6 +9,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
@@ -25,6 +26,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 
 def load_data(database_filepath):
+    '''
+    load data from database
+    
+    Input:
+    database file path
+    
+    Return:
+    X: message feature selected from the dataframe
+    y: categorys feature selected from the dataframe
+    category names
+        
+    '''
+    
     # load data from database
     engine = create_engine('sqlite:///'+ database_filepath)
     df = pd.read_sql_table(
@@ -39,7 +53,20 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    '''
+    tokenize the messages received as a text and then apply normalization, lemmatization, and tokenization to the text messages
+    
+    Input:
+    messages as a text
+    
+    Return:
+    tokenized words
+        
+    '''
     tokens = word_tokenize(text)
+    # Remove stop words
+    #tokens = [tok for tok in tokens if tok not in stop_words("english")]
+
     lemmatizer = WordNetLemmatizer()
 
     clean_tokens = []
@@ -51,6 +78,19 @@ def tokenize(text):
 
 
 def build_model():
+    
+    '''
+    Build model with grid search to optimize hyper prameters of the model
+    Pass the model and parameter grid to the grid search object.
+    Cross validation on all different combinations of these passed in parameters to find the best combination of parameters for the model on fitted the model
+    
+    Input:
+    Nil
+    
+    Return:
+    optimized model
+        
+    '''
     # build pipeline
     pipeline = Pipeline([('Vec', CountVectorizer(tokenizer=tokenize)),
                          ('tfidf', TfidfTransformer()),
